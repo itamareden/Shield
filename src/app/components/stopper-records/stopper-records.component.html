@@ -1,0 +1,11 @@
+<div class="container">
+    <ul>
+        <li class="record" 
+            *ngFor="let record of records; let i = index" 
+            (mouseenter)="removeBtn.style.visibility = 'visible'" 
+            (mouseleave)="removeBtn.style.visibility = 'hidden'">
+            <div class="record--value">{{record}}</div>
+            <button class="record--remove" (click)="removeRecord(i)" #removeBtn>Remove</button>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,75 @@
+$visibleDigitColor: rgb(81, 233, 81);
+$digitFont: 'digital-clock-font';
+$digitFontSize: 82px;
+
+.container {
+    margin-top: 20px;
+    background: black;
+    border-radius: 5px;
+}
+
+.stopper {
+    display: flex;
+    justify-content: center;
+    padding: 10px 60px;
+}
+
+.digit {
+    position: relative;
+    font-size: $digitFontSize;
+    width: 0.5em;   
+    height: 1em; 
+
+    &__background {
+        position:absolute;
+        opacity: 0.25; 
+        color: rgb(181, 241, 181); 
+        font-family: $digitFont;
+    }
+
+    &__visible {
+        position:absolute;
+        opacity: 1; 
+        color: $visibleDigitColor; 
+        font-family: $digitFont;
+        z-index: 1;
+    }
+}
+
+.delimiter-dot, .delimiter-colon {
+    font-family: $digitFont;
+    font-size: $digitFontSize;
+    color: $visibleDigitColor;
+}
+
+.controls {
+    display: flex;
+    height: 40px;
+    background: rgb(250, 249, 249);
+    border-radius: 0 0 5px 5px;
+    font-size: 14px;
+
+    &__control {
+        flex-basis: 25%;
+        border-width: 0;
+        border-left: 1px solid grey;
+        line-height: 40px;
+        text-align: center;
+        cursor: pointer;
+
+        &:disabled {
+            cursor: default;
+        }
+
+        &:last-child {
+            border-radius: 0 0 5px 0;
+        }
+
+        &--play {
+            flex-basis: 50%;
+            font-size: 18px;
+            border-radius: 0 0 0 5px;
+        }
+    }
+
+}

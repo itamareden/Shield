@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="stopper">
+        <div class="digit">
+            <span class="digit__background">8</span>
+            <span class="digit__visible">{{minuteTens}}</span>
+        </div>
+        <div class="digit">
+            <span class="digit__background">8</span>
+            <span class="digit__visible">{{minuteUnits}}</span>
+        </div>
+        <div class="delimiter-colon" [style.visibility]="blink ? 'hidden' : 'visible'">:</div>
+        <div class="digit">
+            <span class="digit__background">8</span>
+            <span class="digit__visible">{{secondTens}}</span>
+        </div>
+        <div class="digit">
+            <span class="digit__background">8</span>
+            <span class="digit__visible">{{secondUnits}}</span>
+        </div>
+        <div class="delimiter-dot" [style.visibility]="blink ? 'hidden' : 'visible'">.</div>
+        <div class="digit">
+            <span class="digit__background">8</span>
+            <span class="digit__visible">{{secondTenths}}</span>
+        </div>
+        <div class="digit">
+            <span class="digit__background">8</span>
+            <span class="digit__visible">{{secondHundredths}}</span>
+        </div>
+    </div>
+    <div class="controls">
+        <button class="controls__control controls__control--play" (click)="toggleStopperState()">
+            <span style="font-size: 12px"><fa-icon [icon]="getStopperStateIcon()"></fa-icon></span>
+            <span style="margin-left: 5px;">{{getPlayBtnValue()}}</span>
+        </button>
+        <button class="controls__control" (click)="addToRecords()" [disabled]="isDisableRecordAddition()">
+            <fa-icon [icon]="stopperIcon"></fa-icon>
+        </button>
+        <button class="controls__control" (click)="reset()">
+            <fa-icon [icon]="removeIcon"></fa-icon>
+        </button>
+    </div>
+</div>
